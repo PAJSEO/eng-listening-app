@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수능 영어 듣기 1번 유형 연습</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 20px auto; padding: 0 20px; background-color: #f4f4f9; }
+    h1 { text-align: center; color: #4a4a4a; }
+    .problem-container { background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 25px; padding: 20px; }
+    .problem-title { font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
+    .audio-player { margin-bottom: 15px; }
+    .choices label { display: block; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; }
+    .choices label:hover { background-color: #eef; }
+    .choices input[type="radio"] { margin-right: 10px; }
+    .button-container { text-align: right; margin-top: 15px; }
+    button { background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 0.9em; }
+    button:hover { background-color: #0056b3; }
+    .feedback { margin-top: 15px; padding: 10px; border-radius: 5px; font-weight: bold; }
+    .feedback.correct { background-color: #d4edda; color: #155724; }
+    .feedback.incorrect { background-color: #f8d7da; color: #721c24; }
+    .script { margin-top: 15px; padding: 15px; background-color: #e9ecef; border-left: 4px solid #007bff; font-family: monospace; white-space: pre-wrap; display: none; }
+  </style>
+</head>
+<body>
+
+<h1>수능 영어 듣기 1번 유형 실전 연습</h1>
+
+<div id="problems"></div>
+
+<script>
+  const problems = [
+    {
+      question: "1. 다음을 듣고, 여자가 하는 말의 목적으로 가장 적절한 것을 고르시오.",
+      audio: "audio/problem1.mp3", // 경로 수정됨
+      choices: [
+        "자전거 이용 시 안전 수칙을 안내하려고",
+        "새로운 공공 자전거 대여 서비스를 홍보하려고",
+        "대중교통 요금 인상에 대해 공지하려고",
+        "친환경 캠페인 참여를 독려하려고",
+        "모바일 앱 개발자를 모집하려고"
+      ],
+      answer: 1,
+      script: `W: Good afternoon, Greenville residents. This is Sarah Chen, head of the city's Public Transport Department. I'm happy to announce the launch of our new public bicycle rental service, 'Greenville Go Bike,' starting next Monday. With over 50 rental stations conveniently located near subway stations and bus stops, you can easily rent a bike using a mobile app. This service aims to reduce traffic congestion and promote an eco-friendly lifestyle for our community. Detailed information about rental fees and station locations is available on the Greenville city website. We hope you enjoy this new, healthy way to get around our city. Thank you.`
+    },
+    {
+      question: "2. 다음을 듣고, 남자가 하는 말의 목적으로 가장 적절한 것을 고르시오.",
+      audio: "audio/problem2.mp3", // 경로 수정됨
+      choices: [
+        "도서관 이용 규칙을 설명하려고",
+        "오디오북 제작 방법을 안내하려고",
+        "학교 도서관의 전자책 서비스를 소개하려고",
+        "독서 감상문 대회 일정을 공지하려고",
+        "스마트폰 사용 자제를 당부하려고"
+      ],
+      answer: 2,
+      script: `M: Hello, students. This is your school librarian, Mr. Peterson. I have some exciting news for all book lovers. Our school library has recently subscribed to an e-book platform, which gives you access to thousands of digital books and audiobooks. You can now read books on your tablets or smartphones anytime, anywhere. To use the service, simply visit the school library website, log in with your student ID, and download the reader app. We believe this will make reading more accessible and convenient for everyone. If you have any questions, please feel free to visit the library. Happy reading!`
+    },
+    {
+      question: "3. 다음을 듣고, 여자가 하는 말의 목적으로 가장 적절한 것을 고르시오.",
+      audio: "audio/problem3.mp3", // 경로 수정됨
+      choices: [
+        "영어 퀴즈 쇼 참가자를 모집하려고",
+        "새로운 영단어 학습 앱을 광고하려고",
+        "효과적인 암기 방법에 대해 조언하려고",
+        "라디오 프로그램 개편을 안내하려고",
+        "앱 무료 체험 기간 종료를 공지하려고"
+      ],
+      answer: 1,
+      script: `W: Hello, listeners, and welcome to 'Five-Minute English'. I'm your host, Jessica. Are you tired of memorizing long lists of vocabulary? Do you want to speak English more naturally? Then our new mobile application, 'Vocab Builder,' is perfect for you. Instead of just memorizing, our app helps you learn words through interactive stories and fun quizzes. It tracks your progress and gives you personalized review sessions every day. With just five minutes a day, you can significantly improve your vocabulary. Search for 'Vocab Builder' on any app store and download it for a free seven-day trial. Start your journey to fluent English today!`
+    },
+    {
+      question: "4. 다음을 듣고, 남자가 하는 말의 목적으로 가장 적절한 것을 고르시오.",
+      audio: "audio/problem4.mp3", // 경로 수정됨
+      choices: [
+        "학교 축제 일정을 공지하려고",
+        "연극 동아리의 신입 부원을 모집하려고",
+        "뮤지컬 공연 관람 예절을 설명하려고",
+        "연기 훈련 프로그램의 장점을 홍보하려고",
+        "동아리 설명회 장소 변경을 안내하려고"
+      ],
+      answer: 1,
+      script: `M: Attention, all students. This is David, the president of the 'Stage Dreamers' drama club. We are looking for passionate new members to join our club for the new semester. We welcome anyone who is interested in acting, stage design, or lighting. You don't need any prior experience. Our club members will provide all the training you need. Joining our club is a great chance to build confidence and make new friends. We are planning to put on a famous musical at the school festival this fall. If you're interested, please come to our information session this Friday at 5 p.m. in the auditorium. We can't wait to meet you.`
+    },
+    {
+      question: "5. 다음을 듣고, 여자가 하는 말의 목적으로 가장 적절한 것을 고르시오.",
+      audio: "audio/problem5.mp3", // 경로 수정됨
+      choices: [
+        "미술관 휴관일을 공지하려고",
+        "특별 전시회 개최를 안내하려고",
+        "미술품 관리의 중요성을 강조하려고",
+        "박물관의 오디오 가이드 이용을 권장하려고",
+        "도슨트(Docent) 프로그램을 홍보하려고"
+      ],
+      answer: 3,
+      script: `W: Good morning, visitors. I’m Ms. Rodriguez, the curator of the Central Modern Art Museum. To make your experience more enjoyable and informative, I'd like to introduce our new audio guide system. You can rent an audio guide device at the information desk for just three dollars. The guide provides detailed explanations of our major artworks, as well as interviews with the artists. It's available in five languages: English, Spanish, Chinese, French, and Korean. By using the guide, you can appreciate the artworks at your own pace and gain a deeper understanding of them. We hope this service enhances your visit to our museum.`
+    }
+  ];
+
+  const problemsContainer = document.getElementById('problems');
+
+  problems.forEach((problem, index) => {
+    const problemDiv = document.createElement('div');
+    problemDiv.className = 'problem-container';
+    problemDiv.id = `problem-${index}`;
+
+    let choicesHTML = '';
+    problem.choices.forEach((choice, choiceIndex) => {
+      choicesHTML += `
+                    <label>
+                        <input type="radio" name="choice-${index}" value="${choiceIndex}">
+                        ${choiceIndex + 1}. ${choice}
+                    </label>
+                `;
+    });
+
+    problemDiv.innerHTML = `
+                <div class="problem-title">${problem.question}</div>
+                <div class="audio-player">
+                    <audio controls src="${problem.audio}"></audio>
+                </div>
+                <div class="choices">${choicesHTML}</div>
+                <div class="button-container">
+                    <button onclick="checkAnswer(${index})">정답 확인</button>
+                </div>
+                <div id="feedback-${index}" class="feedback" style="display:none;"></div>
+                <div id="script-${index}" class="script">${problem.script.trim()}</div>
+            `;
+    problemsContainer.appendChild(problemDiv);
+  });
+
+  function checkAnswer(index) {
+    const selected = document.querySelector(`input[name="choice-${index}"]:checked`);
+    const feedbackDiv = document.getElementById(`feedback-${index}`);
+    const scriptDiv = document.getElementById(`script-${index}`);
+
+    if (!selected) {
+      alert('답을 선택해주세요.');
+      return;
+    }
+
+    const selectedAnswer = parseInt(selected.value);
+    const correctAnswer = problems[index].answer;
+
+    if (selectedAnswer === correctAnswer) {
+      feedbackDiv.textContent = '정답입니다! 🎉';
+      feedbackDiv.className = 'feedback correct';
+    } else {
+      feedbackDiv.innerHTML = `오답입니다. 정답은 ${correctAnswer + 1}번 입니다.`;
+      feedbackDiv.className = 'feedback incorrect';
+    }
+
+    feedbackDiv.style.display = 'block';
+    scriptDiv.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
